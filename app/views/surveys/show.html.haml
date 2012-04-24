@@ -1,0 +1,13 @@
+%h1= @survey.name
+
+%ol.questions
+  - @survey.questions.each do |question|
+    %li
+      = question.content
+      %ol.answers
+        - question.answers.each do |answer|
+          %li= answer.content
+        
+= link_to 'Edit', edit_survey_path(@survey)
+\|
+= link_to 'Back', surveys_path

@@ -1,0 +1,27 @@
+%h1 Listing user_scores
+
+%table
+  %tr
+    %th User
+    %th Survey
+    %th Question
+    %th Answer
+    %th Points
+    %th
+    %th
+    %th
+
+  - @user_scores.each do |user_score|
+    %tr
+      %td= user_score.user
+      %td= user_score.survey
+      %td= user_score.question
+      %td= user_score.answer
+      %td= user_score.points
+      %td= link_to 'Show', user_score
+      %td= link_to 'Edit', edit_user_score_path(user_score)
+      %td= link_to 'Destroy', user_score, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New User score', new_user_score_path

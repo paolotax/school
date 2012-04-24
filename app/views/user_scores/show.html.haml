@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @user_score.user
+%p
+  %b Survey:
+  = @user_score.survey
+%p
+  %b Question:
+  = @user_score.question
+%p
+  %b Answer:
+  = @user_score.answer
+%p
+  %b Points:
+  = @user_score.points
+
+= link_to 'Edit', edit_user_score_path(@user_score)
+\|
+= link_to 'Back', user_scores_path

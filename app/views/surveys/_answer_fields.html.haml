@@ -1,0 +1,11 @@
+  
+%li.nested-fields.alert.alert-info
+  .control-group
+    = link_to_remove_association "x", f, class: "close" 
+    %label.control-label
+      = index
+    .controls.form-inline
+      = f.text_field :content, :class => 'input-medium', :placeholder => 'answer'
+      = f.text_field :points,  :class => 'input-small',  :placeholder => 'points'
+      = f.text_field :answer_type,   :class => 'input-small',  :placeholder => 'type'
+      

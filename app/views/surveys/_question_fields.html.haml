@@ -1,0 +1,19 @@
+.question.nested-fields.alert.alert-success
+  = link_to_remove_association "x", f, class: "close"
+  .control-group
+    %label.control-label
+      = "Domanda ##{index}"
+    .controls.form-inline
+      = f.text_area :content, :class => 'span6', rows: 2, :placeholder => 'answer'
+      / = link_to_remove_association raw("<i class='icon-plus icon-white'></i>elimina"), f
+  .control-group
+    .controls.form-inline
+      = f.text_field :points,  :class => 'input-small',  :placeholder => 'points'
+      = f.text_field :question_type,   :class => 'input-small',  :placeholder => 'type'
+  
+  %ol.answers
+    - f.object.answers.each_with_index do |a, index|
+      = f.simple_fields_for :answers, a do |answer|
+        = render partial: 'answer_fields', locals: { :f => answer, index: index + 1 }
+
+    = link_to_add_association 'aggiungi risposta', f, :answers, render_options: {locals: {:index => 'NEW' }}, "data-association-insertion-method" => 'before', "data-association-insertion-node" => 'this' 

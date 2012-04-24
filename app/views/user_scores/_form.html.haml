@@ -1,0 +1,12 @@
+= simple_form_for(@user_score) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :user
+    = f.input :survey
+    = f.input :question
+    = f.input :answer
+    = f.input :points
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,18 @@
+= simple_form_for @survey, :html => {class: 'form-horizontal'}  do |f|
+
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, :input_html => { class: "span6" }
+    = f.input :description, :input_html => { rows: 2, class: "span6" }
+    
+  .questions
+    - @survey.questions.each_with_index do |q, index|
+      = f.simple_fields_for :questions, q, :child_index => index do |question|
+        = render partial: 'question_fields', locals: {:f => question, :index => index + 1 }
+
+    .links
+      = link_to_add_association 'aggiungi domanda', f, :questions, render_options: {locals: {:index => 'x' }}
+  
+  .form-actions
+    = f.button :submit
