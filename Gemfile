@@ -49,4 +49,8 @@ gem "rails-footnotes", ">= 3.7", :group => :development
 gem "will_paginate", ">= 3.0.3"
 gem 'cocoon'
 
+gem 'unicorn'
+gem 'capistrano'
+
+
 
