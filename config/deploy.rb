@@ -11,7 +11,7 @@ load "config/recipes/check"
 server "72.14.183.209", :web, :app, :db, primary: true
 
 set :user, "deployer"
-set :application, "blog"
+set :application, "school"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
